@@ -1,0 +1,5 @@
+build/
+*.pem
+.vs/
+.vscode/
+external/*.txt
