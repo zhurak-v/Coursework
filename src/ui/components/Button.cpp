@@ -3,9 +3,16 @@
 #include <iostream>
 
 Button::Button(std::string label, std::function<void()> onClick,
-               ButtonVariant variant, std::string icon, const UIStyle& style)
-    : UIComponent(style), label(std::move(label)), onClick(std::move(onClick)),
-      variant(variant), icon(std::move(icon)) {}
+               ButtonVariant variant,
+               std::string icon,
+               const UIStyle& style,
+               const std::string className
+            )
+    : UIComponent(style, className),
+      label(std::move(label)),
+      onClick(std::move(onClick)),
+      variant(variant),
+      icon(std::move(icon)) {}
 
 void Button::Render() {
     static const std::unordered_map<ButtonVariant, ImVec4> variantColors = {
@@ -33,14 +40,7 @@ std::shared_ptr<Button> Button::Create(const std::unordered_map<std::string, std
         getValue<std::function<void()>>(props, "onClick", {}),
         getValue<ButtonVariant>(props, "variant", ButtonVariant::Primary),
         getValue<std::string>(props, "icon", ""),
-        getValue<UIStyle>(props, "style", {})
+        getValue<UIStyle>(props, "style", {}),
+        getValue<std::string>(props, "className", "button")
     );
-}
-
-template <typename T>
-T Button::getValue(const std::unordered_map<std::string, std::any>& props, const std::string& key, const T& defaultValue) {
-    if (auto it = props.find(key); it != props.end() && it->second.type() == typeid(T)) {
-        return std::any_cast<T>(it->second);
-    }
-    return defaultValue;
 }

@@ -1,8 +1,12 @@
-#include <ui/components/UIComponent.hpp>
+#include <string>
 #include <functional>
-
-UIComponent::UIComponent(const UIStyle& style)
-    : style(style) {}
+#include <ui/components/UIComponent.hpp>
+#include <iostream>
+UIComponent::UIComponent(
+    const UIStyle& style,
+    const std::string& className
+)
+    : style(style), className(className) {}
 
 void UIComponent::SetStyle(const std::unordered_map<std::string, std::any>& styleMap) {
     static const std::unordered_map<std::string, std::function<void(UIStyle&, const std::any&)>> setters = {
@@ -18,14 +22,17 @@ void UIComponent::SetStyle(const std::unordered_map<std::string, std::any>& styl
     }
 }
 
+void UIComponent::SetClassName(const std::string& newClassName) {
+    if (!className.empty()) {
+        className += " " + newClassName;
+    }
+    className = newClassName;
+}
+
 UIStyle UIComponent::GetStyle() const {
     return style;
 }
 
-// void UIComponent::SetClassName(const std::string& newClassName) {
-//     className = newClassName;
-// }
-
-// std::string UIComponent::GetClassName() const {
-//     return className;
-// }
+std::string UIComponent::GetClassName() const {
+    return className;
+}
