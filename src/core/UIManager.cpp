@@ -24,12 +24,22 @@ void UIManager::End() {
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
+void UIManager::AddWidget(std::shared_ptr<UIWidget> widget) {
+    widgets.push_back(widget);
+}
+
 void UIManager::Render() {
+    ImGui::SetNextWindowSize(ImVec2(0, 0));
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0);
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0);
+    ImGui::SetNextWindowBgAlpha(0.0f);
+    ImGui::Begin("InvisibleWindow", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoBackground);
+
     for (const auto& widget : widgets) {
         widget->Render();
     }
-}
 
-void UIManager::AddWidget(std::shared_ptr<UIWidget> widget) {
-    widgets.push_back(widget);
+    ImGui::End();
+    ImGui::PopStyleVar(3);
 }
