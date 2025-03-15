@@ -1,7 +1,7 @@
 #pragma once
 
 #include <core/Core.hpp>
-#include <ui/UI.hpp>
+#include <ui/ui.hpp>
 
 class MyApp : public Core {
     protected:

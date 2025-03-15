@@ -22,8 +22,9 @@ void Button::Render() {
     };
 
     ImGui::PushStyleColor(ImGuiCol_Button, variantColors.at(variant));
+    
     ImGui::PushStyleColor(ImGuiCol_Text, style.textColor);
-    ImGui::PushStyleColor(ImGuiCol_ChildBg, style.backgroundColor);
+    ImGui::PushStyleColor(ImGuiCol_Button, style.backgroundColor);
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, {style.padding, style.padding});
 
     if (ImGui::Button(label.c_str()) && onClick) {

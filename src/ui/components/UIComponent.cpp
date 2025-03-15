@@ -1,7 +1,7 @@
 #include <string>
 #include <functional>
 #include <ui/components/UIComponent.hpp>
-#include <iostream>
+
 UIComponent::UIComponent(
     const UIStyle& style,
     const std::string& className
@@ -25,8 +25,9 @@ void UIComponent::SetStyle(const std::unordered_map<std::string, std::any>& styl
 void UIComponent::SetClassName(const std::string& newClassName) {
     if (!className.empty()) {
         className += " " + newClassName;
+    } else {
+        className = newClassName;
     }
-    className = newClassName;
 }
 
 UIStyle UIComponent::GetStyle() const {
