@@ -37,3 +37,14 @@ UIStyle UIComponent::GetStyle() const {
 std::string UIComponent::GetClassName() const {
     return className;
 }
+
+void UIComponent::ApplyStyle() const {
+    ImGui::PushStyleColor(ImGuiCol_Text, style.textColor);
+    ImGui::PushStyleColor(ImGuiCol_Button, style.backgroundColor);
+    ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, {style.padding, style.padding});
+}
+
+void UIComponent::ResetStyle() const {
+    ImGui::PopStyleVar();
+    ImGui::PopStyleColor(2);
+}

@@ -6,9 +6,11 @@
 #include <any>
 
 struct UIStyle {
-    ImVec4 textColor;
-    ImVec4 backgroundColor;
-    float padding;
+    ImVec4 textColor = {1, 1, 1, 1};
+    ImVec4 backgroundColor = {0, 0, 0, 1};
+    float padding = 5.0f;
+
+    UIStyle() = default;
 };
 
 class UIComponent : public UIWidget {
@@ -17,6 +19,7 @@ public:
         const UIStyle& style,
         const std::string& className
     );
+
     void SetStyle(const std::unordered_map<std::string, std::any>& styleMap);
     void SetClassName(const std::string& newClassName);
 
@@ -24,9 +27,12 @@ public:
     UIStyle GetStyle() const;
 
 protected:
+    void ApplyStyle() const;
+    void ResetStyle() const;
+
     UIStyle style;
     std::string className = "";
-    
+
 public:
     template <typename T>
     static T getValue(const std::unordered_map<std::string, std::any>& props, 

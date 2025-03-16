@@ -1,6 +1,7 @@
 #include <glad/gl.h>
 #include <core/Core.hpp>
 #include <iostream>
+#include <utils/screen-size.hpp>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -23,8 +24,13 @@ void Core::InitGLFW() {
     }
 
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_FALSE);
+    
     GLFWmonitor* monitor = glfwGetPrimaryMonitor();
     const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+
+    window_size.width = mode->width;
+    window_size.height = mode->height;
+
     window = glfwCreateWindow(mode->width, mode->height, "Course Work", monitor, nullptr);
 
     if (!window) {

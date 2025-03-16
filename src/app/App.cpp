@@ -1,22 +1,22 @@
 #include <core/App.hpp>
 #include <iostream>
-#include <utils/hex-to-imvec4.hpp>
+#include <utils/style-value.hpp>
+
 
 void MyApp::SetupUI(UIManager& uiManager) {    
     auto button = Button::Create({
-        {"label", "Create New Design"},
-        {"onClick", std::function<void()>([]() {})},
-        {"variant", ButtonVariant::Secondary},
-        {"style", {}},
-        {"className", std::string("custom-button trhts tesd")}
+        {"onClick", std::function<void()>([]() {
+        })},
+        {"className", std::string("custom-button")}
     });
-
 
     button->SetStyle({
         {"backgroundColor", HexToImVec4("#00FF00")},
         {"color", HexToImVec4("#fff")},
 
     });
+
+    std::cout << "Button class: " << button->GetClassName() << std::endl;
         
     uiManager.AddWidget(button);
 }
