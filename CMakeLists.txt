@@ -4,6 +4,7 @@ project(coursework)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 
 add_subdirectory(external/glfw)
 
@@ -31,6 +32,8 @@ target_include_directories(app PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/includes
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 target_link_libraries(app glfw)
 
