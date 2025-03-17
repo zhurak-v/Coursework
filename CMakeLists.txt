@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 
 project(coursework)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(external/glfw)
@@ -29,6 +29,7 @@ target_include_directories(app PUBLIC
     ${IMGUI_DIR}
     ${IMGUI_DIR}/backends
     ${CMAKE_CURRENT_SOURCE_DIR}/includes
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 target_link_libraries(app glfw)
