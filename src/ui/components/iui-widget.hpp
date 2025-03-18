@@ -1,9 +1,9 @@
 #pragma once
 
-class IUIComponent
+class IUIWidget
 {
 public:
-    virtual ~IUIComponent() = default;
+    ~IUIWidget() = default;
 public:
     virtual void render() = 0;
 };
