@@ -5,5 +5,7 @@
 class IEventListener
 {
 public:
+    ~IEventListener() = default;
+public:
     virtual void update(Event event) = 0;
 };

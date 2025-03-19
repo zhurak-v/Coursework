@@ -21,6 +21,7 @@ file(GLOB IMGUI_SRC
 add_executable(app 
     ${SRC_FILES}
     ${IMGUI_SRC}
+    ${CMAKE_CURRENT_SOURCE_DIR}/test/main.test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/external/glad/src/gl.c
 )
 

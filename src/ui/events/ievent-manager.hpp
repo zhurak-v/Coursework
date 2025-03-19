@@ -9,6 +9,6 @@ public:
     ~IEventManager() = default;
 public:
     virtual void notify() = 0;
-    virtual void attach(const IEventListener* listener) = 0;
-    virtual void detach(const IEventListener* listener) = 0;
+    virtual void attach(IEventListener* listener) = 0;
+    virtual void detach(IEventListener* listener) = 0;
 };

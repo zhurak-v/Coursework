@@ -1,15 +1,19 @@
 #include <src/ui/events/event-manager.hpp>
 
-void EventManager::notify() override
+void EventManager::notify()
 {
-    for (unsigned int i = 0; i < m_listeners.size(); ++i)
-        m_listeners[i].update(m_event);
+    std::list<IEventListener*>::iterator iterator = m_listeners.begin();
+
+    while (iterator != m_listeners.end()) {
+        (*iterator)->update(m_event);
+        ++iterator;
+    }
 }
-void EventManager::attach(const IEventListener* listener) override
+void EventManager::attach(IEventListener* listener)
 {
     m_listeners.push_back(listener);
 }
-void EventManager::detach(const IEventListener* listener) override
+void EventManager::detach(IEventListener* listener)
 {
     m_listeners.remove(listener);
 }

@@ -2,7 +2,7 @@
 
 #include <list>
 
-#include <src/ui/events/ievent-manager.hpp
+#include <src/ui/events/ievent-manager.hpp>
 
 class EventManager : public IEventManager
 {
@@ -14,7 +14,7 @@ public:
     EventManager() = default;
 public:
     void notify() override;
-    void attach(const IEventListener* listener) override;
-    void detach(const IEventListener* listener) override;
+    void attach(IEventListener* listener) override;
+    void detach(IEventListener* listener) override;
 
 };

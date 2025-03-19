@@ -8,10 +8,11 @@
 class State
 {
 protected:
-    std::list<> m_listeners;
+    std::list<StateListener*> m_listeners;
     function<void(const Action&)> m_callback;
     StateManager* m_context = nullptr;
-    // + поле для властивостей, які передаються до слухачів стейту
+    // + поле для властивостей, які передаються до слухачів стейту, через посилання
+    // всі всластивості зберігаються в сторі
 public:
     State() = default;
 public:
