@@ -1,43 +1,24 @@
-# Coursework in Computer Science - 1st Year 2025
+# C++ Framework
 
 ## Project Overview
-This project is a coursework assignment for the 1st-year Computer Science program. The main objective is to solve kinematics problems by implementing mathematical models describing the motion of a point in space. The project involves calculating distances, solving nonlinear equations, and visualizing motion trajectories using C++.
 
-## Point trajectory
+**cpp-frame** is a powerful and versatile C++ framework designed for developing modern applications. It combines the ability to create efficient and flexible user interfaces (UI) with server-side logic, enabling developers to build scalable and high-performance applications.
 
-The motion of a point is determined by parametric equations:
+With its modular architecture, **cpp-frame** allows easy creation of interactive UIs and seamless integration with server logic, providing flexibility and efficiency.
 
-$$
-x = t^3 - 5t - 6
-$$
+## Key Features
 
-$$
-y = t - 2e^{-t}
-$$
-
-$$
-z = t^2 + 2^t \cos(t)
-$$
-
-
-The goal of the project is to:
-- Compute the distance between the initial position \( t = 0 \) and the position when the point reaches \( X = 5 \).
-- Solve the nonlinear equation \( x(t) = 5 \) using a numerical method.
-- Implement the solution in C++.
-- Compare results obtained via different methods.
-
-## Implementation Details
-- **Programming Language:** C++
-- **Numerical Method:** One of the root-finding algorithms (depending on the assigned task variant)
-- **Libraries Used:** Standard C++ libraries for numerical computation and file handling
-- **Visualization:** Optional, using external libraries if needed
+- **Flexible UI**: Easily create interactive, customizable, and responsive user interfaces.
+- **Server-side Integration**: Simplified server-side logic setup, real-time request handling, and database interaction.
+- **Ease of Use**: A modular structure that allows rapid integration of components for scalable project development.
+- **Performance Optimization**: High performance for both UI and server-side components using low-level C++ capabilities.
+- **Extensibility**: Easily add new features with plugins and additional libraries.
 
 ## How to Run the Project
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/coursework.git
-   cd coursework
-   git submodule update --init --recursive
+   git clone https://github.com/yourusername/cpp-frame.git
+   cd cpp-frame
    ```
 2. Build the project using CMake:
     ```
@@ -52,21 +33,12 @@ The goal of the project is to:
    ```
 3. Run the executable:
    ```sh
-   ./coursework
+   ./app
    ```
-
-## Expected Output
-- The program should output the computed distance.
-- It should display the number of iterations taken to find the root.
-- The results should be saved to a file for comparison.
-
-## Future Enhancements
-- Improve numerical stability and precision.
-- Add visualization of the trajectory using OpenGL.
-- Implement additional numerical methods for solving equations.
 
 ## Author
 **Volodymyr Zhurakivskyi**
+**Viktor Matishak**
 
 For any questions or suggestions, feel free to contribute or reach out!
 
